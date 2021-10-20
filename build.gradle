@@ -1,0 +1,50 @@
+plugins {
+    id'java'
+    id'application'
+    id'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+mainClassName = 'discustry.Main'
+
+version '1.0'
+def jdaVersion = '4.3.0_277'
+
+sourceCompatibility = targetCompatibility = 1.8
+
+sourceSets.main.java.srcDirs = ["src"]
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+repositories{
+    mavenCentral()
+    jcenter()
+    maven{ url "https://m2.dv8tion.net/releases" }
+    maven{ url 'https://www.jitpack.io' }
+}
+
+ext{
+    //the build number that this plugin is made for
+    mindustryVersion = 'v126.2'
+}
+
+dependencies{
+    compileOnly "com.github.Anuken.Arc:arc-core:$mindustryVersion"
+    compileOnly "com.github.Anuken.Mindustry:core:$mindustryVersion"
+
+    implementation("net.dv8tion:JDA:$jdaVersion"){
+        exclude module: 'opus-java'
+    }
+    implementation group: 'club.minnced', name: 'discord-webhooks', version: '0.7.2'
+    implementation("ch.qos.logback:logback-classic:1.2.3")
+}
+
+shadowJar {
+    from(rootDir){
+        include "plugin.json"
+    }
+
+    from("src/discustry"){
+        include "translations/*.json"
+    }
+}

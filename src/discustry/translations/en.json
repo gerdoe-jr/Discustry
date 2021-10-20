@@ -1,0 +1,9 @@
+{
+  "on_join": "%s joined the game",
+  "on_leave": "%s left the game",
+  "on_game_start": "New game started. Map **%s** by **%s**",
+  "on_wave_start": "Wave %d started",
+  "on_game_over": "Game over",
+  "on_pause": "Game paused",
+  "on_unpause": "Game resumed"
+}

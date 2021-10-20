@@ -1,0 +1,7 @@
+{
+  "name": "Discustry",
+  "author": "gerdoe",
+  "main": "discustry.Main",
+  "description": "Simple as fuck Discord-Mindustry bridge plugin.",
+  "version": 1.0
+}
